@@ -18,6 +18,15 @@ npm run build
 
 Output goes to `dist/`. Preview the production build with `npm run preview`.
 
+## Fonts
+
+Inter is self-hosted via `@fontsource-variable/inter` and imported in
+[`src/index.css`](src/index.css) — there are no runtime requests to Google Fonts.
+The build emits every unicode subset, but each `@font-face` carries a
+`unicode-range`, so a browser downloads only the one it needs (latin, ~48 kB).
+The files land in `dist/assets/` under hashed names and so pick up the immutable
+`Cache-Control` header from [`public/_headers`](public/_headers).
+
 ## Deploy to Cloudflare Pages
 
 Deployment runs through Cloudflare's Git integration: every push to `main` builds
