@@ -67,16 +67,26 @@ Assets in `public/`:
 ## Contact card
 
 The "Save my contact" button serves [`public/contact.vcf`](public/contact.vcf),
-a vCard 3.0 file. Tapping it on iOS opens the native contact preview with an
+a vCard 3.0 file carrying the name, employer, mobile number, LinkedIn URL, and
+an embedded photo. Tapping it on iOS opens the native contact preview with an
 **Add Contact** action; Android downloads it and imports on tap.
 
-Two things to keep in mind when editing it:
+Things to keep in mind when editing it:
 
-- The phone number appears in both `contact.vcf` and `src/config/links.ts`.
-  Update both.
-- vCard requires CRLF line endings. [`.gitattributes`](.gitattributes) enforces
-  this with `*.vcf text eol=crlf`, so it stays correct when Cloudflare checks
-  the repo out on Linux — but make sure your editor does not rewrite them to LF.
+- **The photo is embedded**, not linked — `headshot.jpg` (400×400, 23 kB) is
+  base64-encoded into the `PHOTO` property, which is why the file is ~32 kB.
+  Contact apps largely ignore photos referenced by URL, so embedding is what
+  makes the picture actually show up. `headshot.jpg` is kept in the repo as the
+  source for regenerating that block.
+- **Long lines are folded** per RFC 2426: no line exceeds 75 characters, and
+  continuation lines begin with a single space. That leading space is
+  load-bearing — an editor that strips trailing/leading whitespace will corrupt
+  the photo.
+- **CRLF line endings are required.** [`.gitattributes`](.gitattributes)
+  enforces `*.vcf text eol=crlf` so the file stays valid when Cloudflare checks
+  the repo out on Linux.
+- The phone number appears in both `contact.vcf` and
+  [`src/config/links.ts`](src/config/links.ts). Update both.
 
-The card intentionally carries no email address or employer. Add them with
-`EMAIL:you@example.com` and `ORG:Company` lines if you want them public.
+The card carries no email address. Add one with an `EMAIL:you@example.com`
+line if you want it public.
