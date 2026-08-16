@@ -73,8 +73,8 @@ an embedded photo. Tapping it on iOS opens the native contact preview with an
 
 Things to keep in mind when editing it:
 
-- **The photo is embedded**, not linked — `headshot.jpg` (400×400, 23 kB) is
-  base64-encoded into the `PHOTO` property, which is why the file is ~32 kB.
+- **The photo is embedded**, not linked — `headshot.jpg` (400×400) is
+  base64-encoded into the `PHOTO` property, which is why the file is ~26 kB.
   Contact apps largely ignore photos referenced by URL, so embedding is what
   makes the picture actually show up. `headshot.jpg` is kept in the repo as the
   source for regenerating that block.
