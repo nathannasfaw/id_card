@@ -61,4 +61,22 @@ All personal content (name, bio, links, phone number) lives in
 Assets in `public/`:
 
 - `resume.pdf` — the live resume served by the "Resume" link
+- `contact.vcf` — the downloadable contact card (see below)
 - `profile.jpg` — not present yet; add it to replace the initials fallback
+
+## Contact card
+
+The "Save my contact" button serves [`public/contact.vcf`](public/contact.vcf),
+a vCard 3.0 file. Tapping it on iOS opens the native contact preview with an
+**Add Contact** action; Android downloads it and imports on tap.
+
+Two things to keep in mind when editing it:
+
+- The phone number appears in both `contact.vcf` and `src/config/links.ts`.
+  Update both.
+- vCard requires CRLF line endings. [`.gitattributes`](.gitattributes) enforces
+  this with `*.vcf text eol=crlf`, so it stays correct when Cloudflare checks
+  the repo out on Linux — but make sure your editor does not rewrite them to LF.
+
+The card intentionally carries no email address or employer. Add them with
+`EMAIL:you@example.com` and `ORG:Company` lines if you want them public.

@@ -1,4 +1,4 @@
-import { Linkedin, Phone, type LucideIcon } from "lucide-react";
+import { Linkedin, UserRoundPlus, type LucideIcon } from "lucide-react";
 
 export const profile = {
   name: "Marco Walther",
@@ -12,6 +12,12 @@ export const phone = {
   tel: "+17703611913",
 };
 
+/**
+ * Static vCard in `public/`. Keep the phone number above in sync with the
+ * TEL line in `public/contact.vcf`.
+ */
+export const contactCardHref = "/contact.vcf";
+
 export interface LinkItem {
   label: string;
   sublabel: string;
@@ -19,6 +25,10 @@ export interface LinkItem {
   icon: LucideIcon;
   external?: boolean;
   copyValue?: string;
+  /** Accessible name for the copy button; falls back to `Copy <label>`. */
+  copyLabel?: string;
+  /** Advisory MIME type for non-HTML targets such as the vCard. */
+  type?: string;
 }
 
 export const links: LinkItem[] = [
@@ -30,11 +40,13 @@ export const links: LinkItem[] = [
     external: true,
   },
   {
-    label: "Call me",
+    label: "Save my contact",
     sublabel: phone.display,
-    href: `tel:${phone.tel}`,
-    icon: Phone,
+    href: contactCardHref,
+    icon: UserRoundPlus,
     copyValue: phone.display,
+    copyLabel: "Copy phone number",
+    type: "text/vcard",
   },
 ];
 

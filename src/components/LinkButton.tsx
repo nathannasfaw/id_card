@@ -20,6 +20,7 @@ export default function LinkButton({
     <motion.a
       variants={variants}
       href={link.href}
+      type={link.type}
       target={link.external ? "_blank" : undefined}
       rel={link.external ? "noopener noreferrer" : undefined}
       whileHover={{ scale: 1.02 }}
@@ -40,7 +41,7 @@ export default function LinkButton({
       {copyValue && onCopy && (
         <button
           type="button"
-          aria-label={`Copy ${link.label.toLowerCase()} number`}
+          aria-label={link.copyLabel ?? `Copy ${link.label.toLowerCase()}`}
           onClick={(event) => {
             event.preventDefault();
             event.stopPropagation();
