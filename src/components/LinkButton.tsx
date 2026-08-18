@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import { Copy } from "lucide-react";
+import { ArrowUpRight, Copy } from "lucide-react";
 import type { LinkItem } from "../config/links";
 
 interface LinkButtonProps {
@@ -51,6 +51,14 @@ export default function LinkButton({
         >
           <Copy size={14} strokeWidth={2} aria-hidden="true" />
         </button>
+      )}
+      {link.external && (
+        <ArrowUpRight
+          size={16}
+          strokeWidth={2}
+          aria-hidden="true"
+          className="shrink-0 text-zinc-500 transition-colors duration-200 group-hover:text-white"
+        />
       )}
     </motion.a>
   );

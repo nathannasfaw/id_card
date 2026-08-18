@@ -1,21 +1,18 @@
-import { Linkedin, UserRoundPlus, type LucideIcon } from "lucide-react";
+import { FileText, Github, Linkedin, Mail, type LucideIcon } from "lucide-react";
 
 export const profile = {
-  name: "Marco Walther",
-  firstName: "Marco",
-  initials: "MW",
+  name: "Nathan Asfaw",
+  firstName: "Nathan",
+  initials: "NA",
+  title: "Computer Science Student at University of Georgia",
   photoSrc: "/profile.jpg",
 };
 
 export const phone = {
-  display: "+1 (770) 361-1913",
-  tel: "+17703611913",
+  display: "(678) 414-7923",
+  tel: "+16784147923",
 };
 
-/**
- * Static vCard in `public/`. Keep the phone number above in sync with the
- * TEL line in `public/contact.vcf`.
- */
 export const contactCardHref = "/contact.vcf";
 
 export interface LinkItem {
@@ -25,29 +22,40 @@ export interface LinkItem {
   icon: LucideIcon;
   external?: boolean;
   copyValue?: string;
-  /** Accessible name for the copy button; falls back to `Copy <label>`. */
   copyLabel?: string;
-  /** Advisory MIME type for non-HTML targets such as the vCard. */
   type?: string;
 }
+
+export const resumeHref = "/resume.pdf";
 
 export const links: LinkItem[] = [
   {
     label: "LinkedIn",
     sublabel: "Connect with me",
-    href: "https://www.linkedin.com/in/marco-walther",
+    href: "https://www.linkedin.com/in/nathan-asfaw/",
     icon: Linkedin,
     external: true,
   },
   {
-    label: "Save my contact",
-    sublabel: phone.display,
-    href: contactCardHref,
-    icon: UserRoundPlus,
-    copyValue: phone.display,
-    copyLabel: "Copy phone number",
-    type: "text/vcard",
+    label: "GitHub",
+    sublabel: "github.com/nathannasfaw",
+    href: "https://github.com/nathannasfaw",
+    icon: Github,
+    external: true,
+  },
+  {
+    label: "Email",
+    sublabel: "nathanrasfaw@gmail.com",
+    href: "mailto:nathanrasfaw@gmail.com",
+    icon: Mail,
+    copyValue: "nathanrasfaw@gmail.com",
+    copyLabel: "Copy email address",
+  },
+  {
+    label: "Resume",
+    sublabel: "View my resume (PDF)",
+    href: resumeHref,
+    icon: FileText,
+    external: true,
   },
 ];
-
-export const resumeHref = "/resume.pdf";

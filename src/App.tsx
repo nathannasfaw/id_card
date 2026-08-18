@@ -10,6 +10,7 @@ import ProfileCard from "./components/ProfileCard";
 import { WavyBackground } from "./components/ui/wavy-background";
 import { links, profile } from "./config/links";
 
+
 export default function App() {
   const prefersReducedMotion = useReducedMotion();
   const [toast, setToast] = useState<string | null>(null);
@@ -52,11 +53,24 @@ export default function App() {
         className="flex flex-col"
       >
         <motion.div variants={item} className="relative h-56 w-full sm:h-64">
-          <WavyBackground containerClassName="h-full w-full" />
+          <WavyBackground
+            containerClassName="h-full w-full"
+            waveOpacity={0.35}
+            speed="slow"
+            colors={["#38bdf8", "#818cf8", "#22d3ee"]}
+          />
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#050505]"
           />
+          <div className="absolute bottom-0 left-0 right-0 z-20 mx-auto flex max-w-md translate-y-1/2 justify-center px-5">
+            <motion.img
+              variants={item}
+              src={profile.photoSrc}
+              alt={profile.name}
+              className="h-32 w-32 rounded-full border-4 border-[#050505] object-cover object-top shadow-xl ring-1 ring-white/10"
+            />
+          </div>
         </motion.div>
 
         <div className="mx-auto flex w-full max-w-md flex-col px-5">

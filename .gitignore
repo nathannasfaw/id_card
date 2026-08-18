@@ -16,3 +16,7 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local agent + source files not served by the site
+.claude/
+/Asfaw_Nathan_Resume.pdf
