@@ -9,5 +9,8 @@
   Cache-Control: public, max-age=31536000, immutable
 
 # Phones only offer "Add to Contacts" when the vCard arrives as text/vcard.
+# no-cache forces revalidation so an updated card (e.g. new photo) is never
+# served stale from a browser or edge cache.
 /contact.vcf
   Content-Type: text/vcard; charset=utf-8
+  Cache-Control: no-cache
