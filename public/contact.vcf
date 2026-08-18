@@ -3,9 +3,10 @@ VERSION:3.0
 N:Asfaw;Nathan;;;
 FN:Nathan Asfaw
 TEL;TYPE=CELL,VOICE:+16784147923
-EMAIL:nathanrasfaw@gmail.com
-URL:https://www.linkedin.com/in/nathan-asfaw/
-X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/nathan-asfaw/
-X-SOCIALPROFILE;TYPE=github:https://github.com/nathannasfaw
+EMAIL;TYPE=INTERNET,HOME:nathanrasfaw@gmail.com
+item1.URL:https://www.linkedin.com/in/nathan-asfaw/
+item1.X-ABLabel:LinkedIn
+item2.URL:https://github.com/nathannasfaw
+item2.X-ABLabel:GitHub
 REV:20260817T000000Z
 END:VCARD
