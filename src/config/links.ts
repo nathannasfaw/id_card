@@ -37,10 +37,10 @@ export const links: LinkItem[] = [
     external: true,
   },
   {
-    label: "GitHub",
-    sublabel: "github.com/nathannasfaw",
-    href: "https://github.com/nathannasfaw",
-    icon: Github,
+    label: "Resume",
+    sublabel: "View my resume (PDF)",
+    href: resumeHref,
+    icon: FileText,
     external: true,
   },
   {
@@ -52,10 +52,10 @@ export const links: LinkItem[] = [
     copyLabel: "Copy email address",
   },
   {
-    label: "Resume",
-    sublabel: "View my resume (PDF)",
-    href: resumeHref,
-    icon: FileText,
+    label: "GitHub",
+    sublabel: "github.com/nathannasfaw",
+    href: "https://github.com/nathannasfaw",
+    icon: Github,
     external: true,
   },
 ];
